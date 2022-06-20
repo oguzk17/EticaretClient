@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { CustomToastrService, ToastrMessageType } from './services/ui/custom-toastr.service';
 
+declare var $:any
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +10,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ETicaretClient';
+  constructor(private toastrServices:CustomToastrService){
+    toastrServices.message("oguzhan","kuscu",ToastrMessageType.Error);
+  }
 }
